@@ -1,24 +1,6 @@
-# ----------------------------------------------------------------------
-# This is the file functions_cardio.py
-#
-# The intent is to give you practice writing functions.
-#
-# Complete the functions below.
-#
-# Each function has a docstring that describes what it should do, but
-# please see the unit tests at the bottom of the file for more
-# specific examples of what each function should return.
-#
-# Do not change the tests at the bottom of the file. They are there for
-# you to check your work. Just run this file with `python` or `python3`
-# (whichever works for your system).
-#
-# Remove this comment, and all of the "replace the pass statement..."
-# comments, prior to submission. You can, and should, add your own
-# comments, but please remove all the comments that are here now.
-# ----------------------------------------------------------------------
+# Part of pset1 homework for CMSI 1010
 
-
+# This function prints a square of asterisks of side length n.
 def print_square(n):
     """
     Print a square of asterisks with side length n.
@@ -28,26 +10,24 @@ def print_square(n):
     ***
     ***
     """
-    # replace the pass statement with your code
-    pass
+    for _ in range(n):
+        print('*' * n)
 
-
+# This function checks if n is odd.
 def is_odd(n):
     """
     Return True if n is odd, False otherwise.
     """
-    # replace the pass statement with your code
-    pass
+    return n % 2 !=0
 
-
+# This function returns the median of three numbers.
 def median_of_three(a, b, c):
     """
     Return the median of three numbers a, b, and c.
     """
-    # replace the pass statement with your code
-    pass
+    return sorted([a, b, c])[1]
 
-
+# This function checks if a string is a palindrome.
 def is_palindrome(s):
     """
     Return True if the string s is a palindrome, False otherwise.
@@ -56,10 +36,9 @@ def is_palindrome(s):
     implement it as a simple check to see if s is equal to its
     reversal.
     """
-    # replace the pass statement with your code
-    pass
+    return s == s[::-1]
 
-
+# This function returns the factorial of n.
 def factorial(n):
     """
     Return the factorial of n.
@@ -68,10 +47,12 @@ def factorial(n):
     positive integers less than or equal to n. Please implement this
     function with a for loop.
     """
-    # replace the pass statement with your code
-    pass
+    result = 1
+    for i in range(2, n + 1):
+        result *= i
+    return result
 
-
+# This function counts the number of Latin vowels in a string.
 def count_of_latin_vowels(s):
     """
     Return the number of vowels in the string s.
@@ -79,18 +60,23 @@ def count_of_latin_vowels(s):
     The vowels are 'a', 'e', 'i', 'o', and 'u'. You can implement this
     function using a for loop to iterate through the string.
     """
-    # replace the pass statement with your code
-    pass
+    vowels = 'aeiouAEIOU'
+    count = 0
+    for char in s:
+        if char in vowels:
+            count += 1
+    return count
 
-
+# This function checks if a part is at the beginning or end of a whole string.
 def at_beginning_or_end(part, whole):
     """
     Return True if the part is a prefix or a suffix of whole.
     """
-    # replace the pass statement with your code
-    pass
+    if whole.startswith(part) or whole.endswith(part):
+        return True
+    return False
 
-
+# This function returns the longest string from a list of strings.
 def longest_string(strings):
     """
     Return the longest string from a list of strings.
@@ -98,10 +84,13 @@ def longest_string(strings):
     If there are multiple strings with the same maximum length, return
     the first one encountered.
     """
-    # replace the pass statement with your code
-    pass
+    longest = ""
+    for s in strings:
+        if len(s) > len(longest):
+            longest = s
+    return longest
 
-
+# This function returns the Collatz sequence starting from n.
 def collatz(n):
     """
     Return the Collatz sequence starting from n.
@@ -111,9 +100,16 @@ def collatz(n):
     - If n is odd, the next term is 3n + 1.
     - The sequence ends when it reaches 1.
     """
-    # replace the pass statement with your code
-    pass
+    sequence = [n]
+    while n != 1:
+        if n % 2 == 0:
+            n = n // 2
+        else:
+            n = 3 * n + 1
+        sequence.append(n)
+    return sequence
 
+# These are tests for the functions above. DO NOT MODIFY THE CODE BELOW!
 
 def test_print_square():
     import io
