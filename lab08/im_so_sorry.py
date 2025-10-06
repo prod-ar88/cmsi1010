@@ -1,8 +1,5 @@
 def blocks(n):
-    if n <= 0:
-        return 0
-    else:
-        return blocks(n - 1) + n
+    return 0 if n <= 0 else blocks(n-1) + n
 
 
 print(blocks(8))
