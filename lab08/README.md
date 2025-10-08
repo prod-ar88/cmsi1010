@@ -1,3 +1,3 @@
 # Lab08
 
-Blocks and numbers!
+Initial experiments regarding recursion!
