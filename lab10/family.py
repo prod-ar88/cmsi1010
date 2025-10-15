@@ -6,6 +6,12 @@ class Person:
         self.mom = mom
         self.dad = dad
 
+    def is_sibling_of(self, other):
+        same_mom = self.mom is not None and other.mom is not None and self.mom is other.mom
+        same_dad = self.dad is not None and other.dad is not None and self.dad is other.dad
+        # Half or full, we don't care
+        return same_mom or same_dad
+
     def __str__(self):
         span = f"({self.born or '?'}-{self.died or '?'})"
         mom = f"{self.mom.name if self.mom is not None else '?'}"
@@ -62,3 +68,9 @@ salvatore = Person("Salvatore Riggitano", born="1876",
 louis = Person("Louis Prevost", born="1920",
                died="1997", mom=suzanne, dad=salvatore)
 leo = Person("Robert Prevost", born="1955", mom=mildred, dad=louis)
+adele = Person("Adele Martinez", mom=marie, dad=jacques)
+
+
+print(adele.is_sibling_of(joseph))  # should be true
+print(joseph.is_sibling_of(adele))  # should be true
+print(salvatore.is_sibling_of(louise))  # should be false
